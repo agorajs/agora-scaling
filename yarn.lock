@@ -10,15 +10,20 @@
   version "4.14.117"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.117.tgz#695a7f514182771a1e0f4345d189052ee33c8778"
 
-"agora-algorithm@git+ssh://git@gite.lirmm.fr:chen/agora-algorithm.git":
-  version "0.1.0"
-  resolved "git+ssh://git@gite.lirmm.fr:chen/agora-algorithm.git#e0a5d07e2f944e57242d6b57fd0c76f22509928d"
-  dependencies:
-    agora-graph "git+ssh://git@gite.lirmm.fr:chen/agora-graph.git"
+"@types/lodash@^4.14.124":
+  version "4.14.124"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.124.tgz#16fb067a8fc4be42f044c505d8b5316c6f54de93"
+  integrity sha512-6bKEUVbHJ8z34jisA7lseJZD2g31SIvee3cGX2KEZCS4XXWNbjPZpmO1/2rGNR9BhGtaYr6iYXPl1EzRrDAFTA==
 
-"agora-graph@git+ssh://git@gite.lirmm.fr:chen/agora-graph.git":
-  version "0.0.0"
-  resolved "git+ssh://git@gite.lirmm.fr:chen/agora-graph.git#bf5f5be2a725c486e3e35074ad4da1edf257feae"
+"agora-algorithm@git+ssh://git@gite.lirmm.fr/chen/agora-algorithm.git#semver:^0.4.0":
+  version "0.4.0"
+  resolved "git+ssh://git@gite.lirmm.fr/chen/agora-algorithm.git#170277b095fd73c6fc38a7e70d5428d892fe7e0f"
+  dependencies:
+    agora-graph "git+ssh://git@gite.lirmm.fr/chen/agora-graph.git#semver:^0.1.0"
+
+"agora-graph@git+ssh://git@gite.lirmm.fr/chen/agora-graph.git#semver:^0.1.0":
+  version "0.1.0"
+  resolved "git+ssh://git@gite.lirmm.fr/chen/agora-graph.git#1944ff000404cba64bdc6d5550ebf0814bfdf629"
   dependencies:
     "@types/delaunator" "^2.0.0"
     "@types/lodash" "^4.14.116"
