@@ -1,6 +1,6 @@
 {
-  "name": "agora-scale",
-  "version": "0.1.1",
+  "name": "agora-scaling",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "author": "Fati CHEN <chen@lirmm.fr>",
   "license": "MIT",
