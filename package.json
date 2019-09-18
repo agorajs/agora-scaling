@@ -1,6 +1,6 @@
 {
-  "name": "agora-scale",
-  "version": "0.1.1",
+  "name": "agora-scaling",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "author": "Fati CHEN <chen@lirmm.fr>",
   "license": "MIT",
@@ -8,12 +8,11 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.124",
-    "agora-algorithm": "git+ssh://git@gite.lirmm.fr/chen/agora-algorithm.git#semver:^0.4.0",
-    "agora-graph": "git+ssh://git@gite.lirmm.fr/chen/agora-graph.git#semver:^0.1.0",
-    "lodash": "^4.17.11"
+    "@types/lodash": "^4.14.138",
+    "agora-graph": "https://github.com/agorajs/agora-graph.git#semver:^1.1.1",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "typescript": "^3.4.5"
+    "typescript": "^3.6.3"
   }
 }

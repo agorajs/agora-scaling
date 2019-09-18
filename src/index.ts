@@ -7,30 +7,28 @@
 import _ from 'lodash';
 import {
   overlap,
-  Δ,
   length,
   optimalVector,
   Node,
-  Graph,
   getAllOverlaps,
   norm,
   minX,
-  maxY,
   minY,
-  nodeMap
+  createFunction,
+  Algorithm
 } from 'agora-graph';
-import { Result } from 'agora-algorithm';
-
-export default scale;
 
 /**
  * Executes the Scale algorithm for this graph
  *
- * @param graph the graph to update
- * @param [options] options to pass to the algorith
+ * @param {Graph} graph the graph to update
+ * @param {object} options to pass to the algorith
  * @param {number} options.padding padding to add between nodes
  */
-export function scale(graph: Graph, options = { padding: 0 }): Result {
+export const scaling = createFunction(function(
+  graph,
+  options: { padding: number } = { padding: 0 }
+) {
   const scaleRatio = getMaxOverlapRatio(graph.nodes, options.padding);
 
   // scale it up
@@ -49,8 +47,14 @@ export function scale(graph: Graph, options = { padding: 0 }): Result {
   });
 
   return { graph: graph };
-}
+});
 
+export const ScalingAlgorithm: Algorithm<{ padding: number }> = {
+  name: 'Scaling',
+  algorithm: scaling
+};
+
+export default ScalingAlgorithm;
 /**
  * find the biggest ratio for overlapping nodes
  * @param nodes

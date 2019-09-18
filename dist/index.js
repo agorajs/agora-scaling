@@ -10,15 +10,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var lodash_1 = __importDefault(require("lodash"));
 var agora_graph_1 = require("agora-graph");
-exports.default = scale;
 /**
  * Executes the Scale algorithm for this graph
  *
- * @param graph the graph to update
- * @param [options] options to pass to the algorith
+ * @param {Graph} graph the graph to update
+ * @param {object} options to pass to the algorith
  * @param {number} options.padding padding to add between nodes
  */
-function scale(graph, options) {
+exports.scaling = agora_graph_1.createFunction(function (graph, options) {
     if (options === void 0) { options = { padding: 0 }; }
     var scaleRatio = getMaxOverlapRatio(graph.nodes, options.padding);
     // scale it up
@@ -34,8 +33,12 @@ function scale(graph, options) {
         n.y -= y_origin;
     });
     return { graph: graph };
-}
-exports.scale = scale;
+});
+exports.ScalingAlgorithm = {
+    name: 'Scaling',
+    algorithm: exports.scaling
+};
+exports.default = exports.ScalingAlgorithm;
 /**
  * find the biggest ratio for overlapping nodes
  * @param nodes
