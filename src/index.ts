@@ -4,7 +4,7 @@
  * Scales up the size of the graph until there is no more overlap
  */
 
-import _ from 'lodash';
+import forEach from 'lodash/forEach';
 import {
   overlap,
   length,
@@ -32,7 +32,7 @@ export const scaling = createFunction(function (
   const scaleRatio = getMaxOverlapRatio(graph.nodes, options.padding);
 
   // scale it up
-  _.forEach(graph.nodes, (n) => {
+  forEach(graph.nodes, (n) => {
     n.x *= +scaleRatio;
     n.y *= +scaleRatio;
   });
@@ -41,7 +41,7 @@ export const scaling = createFunction(function (
   const y_origin = minY(minY(graph.nodes));
 
   // shift to origin
-  _.forEach(graph.nodes, (n) => {
+  forEach(graph.nodes, (n) => {
     n.x -= x_origin;
     n.y -= y_origin;
   });
@@ -65,7 +65,7 @@ function getMaxOverlapRatio(nodes: Node[], padding: number = 0): number {
 
   const overlapGroups = getAllOverlaps(nodes);
 
-  _.forEach(overlapGroups, (group) => {
+  forEach(overlapGroups, (group) => {
     for (let i = 0; i < group.length; i++) {
       const u = group[i];
       for (let j = i + 1; j < group.length; j++) {

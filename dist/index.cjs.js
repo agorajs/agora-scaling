@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var _ = _interopDefault(require('lodash'));
+var forEach = _interopDefault(require('lodash/forEach'));
 var agoraGraph = require('agora-graph');
 
 /**
@@ -26,19 +26,17 @@ var scaling = agoraGraph.createFunction(function (graph) {
   };
   var scaleRatio = getMaxOverlapRatio(graph.nodes, options.padding); // scale it up
 
-  _.forEach(graph.nodes, function (n) {
+  forEach(graph.nodes, function (n) {
     n.x *= +scaleRatio;
     n.y *= +scaleRatio;
   });
-
   var x_origin = agoraGraph.minX(agoraGraph.minX(graph.nodes));
   var y_origin = agoraGraph.minY(agoraGraph.minY(graph.nodes)); // shift to origin
 
-  _.forEach(graph.nodes, function (n) {
+  forEach(graph.nodes, function (n) {
     n.x -= x_origin;
     n.y -= y_origin;
   });
-
   return {
     graph: graph
   };
@@ -57,8 +55,7 @@ function getMaxOverlapRatio(nodes) {
   var padding = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
   var maxOverlapRatio = 1;
   var overlapGroups = agoraGraph.getAllOverlaps(nodes);
-
-  _.forEach(overlapGroups, function (group) {
+  forEach(overlapGroups, function (group) {
     for (var i = 0; i < group.length; i++) {
       var u = group[i];
 
@@ -80,7 +77,6 @@ function getMaxOverlapRatio(nodes) {
       }
     }
   });
-
   return maxOverlapRatio;
 }
 

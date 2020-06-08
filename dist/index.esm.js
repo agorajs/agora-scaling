@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import forEach from 'lodash/forEach';
 import { createFunction, minX, minY, getAllOverlaps, overlap, norm, length, optimalVector } from 'agora-graph';
 
 /**
@@ -20,19 +20,17 @@ var scaling = createFunction(function (graph) {
   };
   var scaleRatio = getMaxOverlapRatio(graph.nodes, options.padding); // scale it up
 
-  _.forEach(graph.nodes, function (n) {
+  forEach(graph.nodes, function (n) {
     n.x *= +scaleRatio;
     n.y *= +scaleRatio;
   });
-
   var x_origin = minX(minX(graph.nodes));
   var y_origin = minY(minY(graph.nodes)); // shift to origin
 
-  _.forEach(graph.nodes, function (n) {
+  forEach(graph.nodes, function (n) {
     n.x -= x_origin;
     n.y -= y_origin;
   });
-
   return {
     graph: graph
   };
@@ -51,8 +49,7 @@ function getMaxOverlapRatio(nodes) {
   var padding = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
   var maxOverlapRatio = 1;
   var overlapGroups = getAllOverlaps(nodes);
-
-  _.forEach(overlapGroups, function (group) {
+  forEach(overlapGroups, function (group) {
     for (var i = 0; i < group.length; i++) {
       var u = group[i];
 
@@ -74,7 +71,6 @@ function getMaxOverlapRatio(nodes) {
       }
     }
   });
-
   return maxOverlapRatio;
 }
 
