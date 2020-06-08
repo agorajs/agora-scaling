@@ -15,7 +15,7 @@ import {
   minX,
   minY,
   createFunction,
-  Algorithm
+  Algorithm,
 } from 'agora-graph';
 
 /**
@@ -25,14 +25,14 @@ import {
  * @param {object} options to pass to the algorith
  * @param {number} options.padding padding to add between nodes
  */
-export const scaling = createFunction(function(
+export const scaling = createFunction(function (
   graph,
   options: { padding: number } = { padding: 0 }
 ) {
   const scaleRatio = getMaxOverlapRatio(graph.nodes, options.padding);
 
   // scale it up
-  _.forEach(graph.nodes, n => {
+  _.forEach(graph.nodes, (n) => {
     n.x *= +scaleRatio;
     n.y *= +scaleRatio;
   });
@@ -41,7 +41,7 @@ export const scaling = createFunction(function(
   const y_origin = minY(minY(graph.nodes));
 
   // shift to origin
-  _.forEach(graph.nodes, n => {
+  _.forEach(graph.nodes, (n) => {
     n.x -= x_origin;
     n.y -= y_origin;
   });
@@ -51,7 +51,7 @@ export const scaling = createFunction(function(
 
 export const ScalingAlgorithm: Algorithm<{ padding: number }> = {
   name: 'Scaling',
-  algorithm: scaling
+  algorithm: scaling,
 };
 
 export default ScalingAlgorithm;
@@ -65,7 +65,7 @@ function getMaxOverlapRatio(nodes: Node[], padding: number = 0): number {
 
   const overlapGroups = getAllOverlaps(nodes);
 
-  _.forEach(overlapGroups, group => {
+  _.forEach(overlapGroups, (group) => {
     for (let i = 0; i < group.length; i++) {
       const u = group[i];
       for (let j = i + 1; j < group.length; j++) {
