@@ -35,7 +35,7 @@ export default [
   // `file` and `format` for each target)
   {
     input: 'src/index.ts',
-    external: ['lodash', 'agora-graph'],
+    external: ['lodash/forEach', 'agora-graph'],
     plugins: [
       babel({
         extensions,

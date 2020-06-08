@@ -857,15 +857,7 @@
     is-module "^1.0.0"
     resolve "^1.14.2"
 
-"@rollup/plugin-typescript@^4.1.2":
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-typescript/-/plugin-typescript-4.1.2.tgz#6f910430276ae3e53a47a12ad65820627e7b6ad9"
-  integrity sha512-+7UlGat/99e2JbmGNnIauxwEhYLwrL7adO/tSJxUN57xrrS3Ps+ZzYpLCDGPZJ57j+ZJTZLLN89KXW9JMEB+jg==
-  dependencies:
-    "@rollup/pluginutils" "^3.0.1"
-    resolve "^1.14.1"
-
-"@rollup/pluginutils@^3.0.1", "@rollup/pluginutils@^3.0.8":
+"@rollup/pluginutils@^3.0.8":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-3.1.0.tgz#706b4524ee6dc8b103b3c995533e5ad680c02b9b"
   integrity sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==
@@ -873,11 +865,6 @@
     "@types/estree" "0.0.39"
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
-
-"@types/delaunator@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@types/delaunator/-/delaunator-2.0.0.tgz#61bd8374db4a75b010e90da162a7fe17fa83fae2"
-  integrity sha512-5MwdeoRF5Q3zfGljBt4uOVt2Xppf+kAoZk2fRQV4TOUa7HsZ9R6J4Bu2pfNx9RoIJrbtQwMGHPSdGiQsmJ9jEQ==
 
 "@types/estree@0.0.39":
   version "0.0.39"
@@ -889,7 +876,7 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.44.tgz#980cc5a29a3ef3bea6ff1f7d021047d7ea575e21"
   integrity sha512-iaIVzr+w2ZJ5HkidlZ3EJM8VTZb2MJLCjw3V+505yVts0gRC4UMvjw0d1HPtGqI/HQC/KdsYtayfzl+AXY2R8g==
 
-"@types/lodash@^4.14.116", "@types/lodash@^4.14.138":
+"@types/lodash@^4.14.138", "@types/lodash@^4.14.155":
   version "4.14.155"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.155.tgz#e2b4514f46a261fd11542e47519c20ebce7bc23a"
   integrity sha512-vEcX7S7aPhsBCivxMwAANQburHBtfN9RdyXFk84IJmu2Z4Hkg1tOFgaslRiEqqvoLtbCBi6ika1EMspE+NZ9Lg==
@@ -906,13 +893,12 @@
   dependencies:
     "@types/node" "*"
 
-"agora-graph@agorajs/agora-graph#semver:^1.2.0":
-  version "1.2.0"
-  resolved "https://codeload.github.com/agorajs/agora-graph/tar.gz/88ec2c2ef7400c33f82efc8ad76c72a770df8c44"
+"agora-graph@agorajs/agora-graph#semver:^1.3.0":
+  version "1.3.0"
+  resolved "https://codeload.github.com/agorajs/agora-graph/tar.gz/cef0b1dd6edc715d9c07c8fbc3248322fbc01089"
   dependencies:
-    "@types/delaunator" "^2.0.0"
-    "@types/lodash" "^4.14.116"
-    delaunator "^3.0.2"
+    "@types/lodash" "^4.14.155"
+    delaunator "^4.0.1"
     lodash "4.17.15"
 
 ansi-styles@^3.2.1:
@@ -1042,10 +1028,10 @@ define-properties@^1.1.2:
   dependencies:
     object-keys "^1.0.12"
 
-delaunator@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/delaunator/-/delaunator-3.0.2.tgz#62d5d9699cd64a736a2bb9c4d957d662452808d0"
-  integrity sha512-GNSex8jhF1mcqtNAMYvdZ6Ng7YieYNlbOq2xshyZhLc98P8y5O7Vm6buw4A60wGOd9qvK9RcIMm5qoe4PncAPw==
+delaunator@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/delaunator/-/delaunator-4.0.1.tgz#3d779687f57919a7a418f8ab947d3bddb6846957"
+  integrity sha512-WNPWi1IRKZfCt/qIDMfERkDp93+iZEmOxN2yy4Jg+Xhv8SLk2UTqqbe1sfiipn0and9QrE914/ihdx82Y/Giag==
 
 electron-to-chromium@^1.3.413:
   version "1.3.464"
@@ -1383,7 +1369,7 @@ regjsparser@^0.6.4:
   dependencies:
     jsesc "~0.5.0"
 
-resolve@^1.11.0, resolve@^1.14.1, resolve@^1.14.2, resolve@^1.3.2, resolve@^1.8.1:
+resolve@^1.11.0, resolve@^1.14.2, resolve@^1.3.2, resolve@^1.8.1:
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.17.0.tgz#b25941b54968231cc2d1bb76a79cb7f2c0bf8444"
   integrity sha512-ic+7JYiV8Vi2yzQGFWOkiZD5Z9z7O2Zhm9XMaTxdJExKasieFCr+yXZ/WmXsckHiKl12ar0y6XiXDx3m4RHn1w==
