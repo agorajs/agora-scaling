@@ -5,17 +5,16 @@
  */
 
 import forEach from 'lodash/forEach';
+import type { Node, Algorithm } from 'agora-graph';
 import {
   overlap,
   length,
   optimalVector,
-  Node,
   getAllOverlaps,
   norm,
   minX,
   minY,
   createFunction,
-  Algorithm,
 } from 'agora-graph';
 
 /**
@@ -29,7 +28,7 @@ export const scaling = createFunction(function (
   graph,
   options: { padding: number } = { padding: 0 }
 ) {
-  const scaleRatio = getMaxOverlapRatio(graph.nodes, options.padding);
+  const scaleRatio = getMaxOverlapRatio(graph.nodes, options);
 
   // scale it up
   forEach(graph.nodes, (n) => {
@@ -58,9 +57,12 @@ export default ScalingAlgorithm;
 /**
  * find the biggest ratio for overlapping nodes
  * @param nodes
- * @param [padding=0]
+ * @param {number} options.padding padding to add between nodes
  */
-function getMaxOverlapRatio(nodes: Node[], padding: number = 0): number {
+function getMaxOverlapRatio(
+  nodes: Node[],
+  options: { padding: number } = { padding: 0 }
+): number {
   let maxOverlapRatio = 1;
 
   const overlapGroups = getAllOverlaps(nodes);
@@ -71,10 +73,10 @@ function getMaxOverlapRatio(nodes: Node[], padding: number = 0): number {
       for (let j = i + 1; j < group.length; j++) {
         const v = group[j];
 
-        if (overlap(u, v, padding)) {
+        if (overlap(u, v, options)) {
           const actualDist = norm(u, v);
           if (actualDist !== 0) {
-            const optimalDist = length(optimalVector(u, v, padding));
+            const optimalDist = length(optimalVector(u, v, options.padding));
 
             const ratio = optimalDist / actualDist;
             if (maxOverlapRatio < ratio) {
