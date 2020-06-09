@@ -9,14 +9,22 @@ export default [
   // browser-friendly UMD build
   {
     input: 'src/index.ts',
-    output: {
-      name: 'AgoraScale',
-      file: pkg.browser,
-      format: 'iife',
-      exports: 'named',
-    },
+    output: [
+      {
+        name: 'AgoraScaling',
+        file: pkg.iife,
+        format: 'iife',
+        exports: 'named',
+      },
+      {
+        name: 'AgoraScaling',
+        file: pkg.browser,
+        format: 'umd',
+        exports: 'named',
+      },
+    ],
     plugins: [
-      resolve(), // so Rollup can find `ms`
+      resolve({ extensions }), // so Rollup can find `ms`
       commonjs(), // so Rollup can convert `ms` to an ES module
       babel({
         extensions,
@@ -35,8 +43,10 @@ export default [
   // `file` and `format` for each target)
   {
     input: 'src/index.ts',
-    external: ['lodash/forEach', 'agora-graph'],
+    external: ['lodash', 'agora-graph'],
     plugins: [
+      resolve({ extensions }), // so Rollup can find `ms`
+      commonjs(), // so Rollup can convert `ms` to an ES module
       babel({
         extensions,
         babelHelpers: 'runtime',
@@ -45,8 +55,8 @@ export default [
       }),
     ],
     output: [
-      { file: pkg.main, format: 'cjs', exports: 'named' },
-      { file: pkg.module, format: 'es', exports: 'named' },
+      { file: pkg.main, format: 'cjs' },
+      { file: pkg.module, format: 'es' },
     ],
   },
 ];
